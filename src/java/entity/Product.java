@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package entity;
 
 import java.util.Date;
@@ -14,10 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-/**
- *
- * @author dulan
- */
+
 @Entity
 @Table(name = "product")
 public class Product {
@@ -70,143 +63,113 @@ public class Product {
     @JoinColumn(name = "brand_id")
     private Brand brand;
 
-    /**
-     * @return the id
-     */
+    public Product() {
+    }
+
     public int getId() {
         return id;
     }
 
-    /**
-     * @param id the id to set
-     */
     public void setId(int id) {
         this.id = id;
     }
 
-    /**
-     * @return the model
-     */
     public Model getModel() {
         return model;
     }
 
-    /**
-     * @param model the model to set
-     */
     public void setModel(Model model) {
         this.model = model;
     }
 
-    /**
-     * @return the title
-     */
     public String getTitle() {
         return title;
     }
 
-    /**
-     * @param title the title to set
-     */
     public void setTitle(String title) {
         this.title = title;
     }
 
-    /**
-     * @return the description
-     */
     public String getDescription() {
         return description;
     }
 
-    /**
-     * @param description the description to set
-     */
     public void setDescription(String description) {
         this.description = description;
     }
 
-    /**
-     * @return the price
-     */
     public double getPrice() {
         return price;
     }
 
-    /**
-     * @param price the price to set
-     */
     public void setPrice(double price) {
         this.price = price;
     }
 
-    /**
-     * @return the qty
-     */
     public int getQty() {
         return qty;
     }
 
-    /**
-     * @param qty the qty to set
-     */
     public void setQty(int qty) {
         this.qty = qty;
     }
 
-    /**
-     * @return the datetime
-     */
     public Date getDatetime() {
         return datetime;
     }
 
-    /**
-     * @param datetime the datetime to set
-     */
     public void setDatetime(Date datetime) {
         this.datetime = datetime;
     }
 
-    /**
-     * @return the productCondition
-     */
+    public Size getSize() {
+        return size;
+    }
+
+    public void setSize(Size size) {
+        this.size = size;
+    }
+
     public ProductCondition getProductCondition() {
         return productCondition;
     }
 
-    /**
-     * @param productCondition the productCondition to set
-     */
     public void setProductCondition(ProductCondition productCondition) {
         this.productCondition = productCondition;
     }
 
-    /**
-     * @return the productStatus
-     */
     public ProductStatus getProductStatus() {
         return productStatus;
     }
 
-    /**
-     * @param productStatus the productStatus to set
-     */
     public void setProductStatus(ProductStatus productStatus) {
         this.productStatus = productStatus;
     }
 
-    /**
-     * @return the user
-     */
     public User getUser() {
         return user;
     }
 
-    /**
-     * @param user the user to set
-     */
     public void setUser(User user) {
         this.user = user;
     }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
+    }
+
+
+    
 }
