@@ -18,12 +18,12 @@
         <mapping class="entity.Color" /> 
         <mapping class="entity.Category" />
         <mapping class="entity.Cart" /> 
-    </session-factory>
-</hibernate-configuration>
-
-<!--
         <mapping class="entity.City" /> 
         <mapping class="entity.Address" /> 
         <mapping class="entity.Product_Order" /> 
         <mapping class="entity.Order_item" /> 
-        <mapping class="entity.Order_Status" /> -->
+        <mapping class="entity.Order_Status" /> 
+    </session-factory>
+</hibernate-configuration>
+
+
