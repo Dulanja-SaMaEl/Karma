@@ -1,3 +1,8 @@
+// Initialize Awesome Notifications
+const notifier = new AWN({
+    position: "top-right" // Set position to top-right
+});
+
 var modelList;
 async function loadDetailsForAddProduct() {
 
@@ -119,9 +124,9 @@ async function addProduct() {
             image3Tag.value = null;
 
         } else {
-            alert(json.message);
+            notifier.warning(json.message);
         }
     } else {
-        console.log("Server Error.");
+        notifier.alert("Server Error");
     }
 }

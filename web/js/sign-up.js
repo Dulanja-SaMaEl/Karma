@@ -1,3 +1,8 @@
+// Initialize Awesome Notifications
+const notifier = new AWN({
+    position: "top-right" // Set position to top-right
+});
+
 async function signUp() {
 
     const user_dto = {
@@ -25,10 +30,10 @@ async function signUp() {
             window.location = "verify-account.html";
 
         } else {
-            document.getElementById("message").innerHTML = json.content;
+            notifier.warning(json.content);
         }
 
     } else {
-        document.getElementById("message").innerHTML = "Please try again later";
+        notifier.alert("Server Error");
     }
 }
