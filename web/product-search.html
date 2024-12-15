@@ -53,7 +53,7 @@
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                        aria-expanded="false">Shop</a>
                                     <ul class="dropdown-menu">
-                                        <li class="nav-item active"><a class="nav-link" href="category.html">Shop Category</a></li>
+                                        <li class="nav-item active"><a class="nav-link" href="product-search.html">Shop Category</a></li>
                                         <li class="nav-item active"><a class="nav-link" href="my-account.html">Product</a></li>
                                         <li class="nav-item"><a class="nav-link" href="single-product.html">Product Details</a></li>
                                         <li class="nav-item"><a class="nav-link" href="checkout.html">Product Checkout</a></li>
@@ -91,15 +91,6 @@
                     </div>
                 </nav>
             </div>
-<!--            <div class="search_input" id="search_input_box">
-                <div class="container">
-                    <form class="d-flex justify-content-between">
-                        <input type="text" class="form-control" id="search_input" placeholder="Search Here">
-                        <button type="submit" class="btn"></button>
-                        <span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
-                    </form>
-                </div>
-            </div>-->
         </header>
         <!-- End Header Area -->
 
@@ -108,10 +99,10 @@
             <div class="container">
                 <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
                     <div class="col-first">
-                        <h1>Product</h1>
+                        <h1>Product Search</h1>
                         <nav class="d-flex align-items-center">
                             <a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
-                            <a href="my-account.html">Product</a>
+                            <a href="#">Shop<span class="lnr"></span></a>
                         </nav>
                     </div>
                 </div>
@@ -122,165 +113,128 @@
             <div class="row">
                 <div class="col-xl-3 col-lg-4 col-md-5">
                     <div class="sidebar-categories">
-                        <div class="head">Create New Product</div>
+                        <div class="head">Browse Categories</div>
                         <ul class="main-categories">
-
+                            <div class="sorting mr-3">
+                                <select style="width: 150px; height: 45px" id="select-category" onchange="updateModels();" >
+                                    <option value="0">Sort by Category</option>
+                                </select>
+                            </div>
                         </ul>
-
                     </div>
 
-                    <div class="col-12">
-                        <div class="form-group mb--0 mt--30 d-grid">
-                            <a class="nav-item nav-link" data-bs-toggle="tab" href="#nav-product-listing" role="tab" aria-selected="false">Product Listing</a>
-                            <a class="nav-item nav-link" data-bs-toggle="tab" href="#nav-orders" role="tab" aria-selected="false">Orders</a>
-                            <a class="nav-item nav-link" data-bs-toggle="tab" href="#nav-address" role="tab" aria-selected="false">Addresses</a>
-                            <a class="nav-item nav-link" href="#">Logout</a>
+                    <div class="sidebar-categories mt-4">
+                        <div class="head">Filter By Price</div>
+                        <ul class="main-categories">
+                            <div class="sorting mr-3 mb-3">
+                                <div class="price-input-container">
+                                    <div class="price-input">
+                                        <div class="price-field">
+                                            <span>Minimum Price : Rs. </span>
+                                            <input id="price-value1" value="0" disabled />
+                                        </div>
+                                        <div class="price-field">
+                                            <span>Maximum Price : Rs. </span>
+                                            <input id="price-value2" value="5000" disabled />
+                                        </div>
+                                    </div>
+                                    <div class="slider-container">
+                                        <div class="price-slider">
+                                        </div>
+                                    </div>
+                                </div>
 
-                        </div>
+                                <!-- Slider -->
+                                <div class="range-input">
+                                    <input type="range" 
+                                           class="min-range" 
+                                           min="0" 
+                                           max="5000" 
+                                           value="0" 
+                                           step="50"
+                                           id="price-range1">
+                                    <input type="range" 
+                                           class="max-range" 
+                                           min="0" 
+                                           max="5000" 
+                                           value="5000" 
+                                           step="50"
+                                           id="price-range2">
+                                </div>
+
+                            </div>
+                        </ul>
                     </div>
-
                 </div>
-
 
                 <div class="col-xl-9 col-lg-8 col-md-7">
 
                     <!-- Start Filter Bar -->
                     <div class="filter-bar d-flex flex-wrap align-items-center">
-
-                        <div class="sorting mr-5">
-                            <select  style="width: 150px; height: 45px" id="select-category" onchange="updateModels();" >
-                                <option value="Select">Categories</option>
+                        <div class="sorting mr-3">                        
+                            <select style="width: 150px; height: 45px" id="select-model">
+                                <option value="0">Sort by Model</option>
                             </select>
                         </div>
-                        <div class="sorting mr-5">
-                            <select style="width: 150px; height: 45px"  id="select-model">
-                                <option value="Select">Models</option>
+                        <div class="sorting mr-3">
+                            <select style="width: 150px; height: 45px" id="select-brand">
+                                <option value="0">Sort by Brand</option>
                             </select>
                         </div>
-                        <div class="sorting mr-5">
-                            <select style="width: 150px; height: 45px"  id="select-brand">
-                                <option value="Select">Brands</option>
+                        <div class="sorting mr-3">
+                            <select style="width: 150px; height: 45px" id="select-size">
+                                <option value="0">Sort by Size</option>
                             </select>
                         </div>
-                        <div class="sorting mr-5">
-                            <select style="width: 150px; height: 45px"  id="select-size">
-                                <option value="Select">Size</option>
-                            </select>
-                        </div>
-
                         <div class="sorting mr-lg-auto">
-                            <select style="width: 150px; height: 45px"  id="select-color">
-                                <option value="Select">Color</option>
+                            <select style="width: 150px; height: 45px" id="select-color">
+                                <option value="0">Sort by Color</option>
                             </select>
                         </div>
-
                         <div class="sorting mr-lg-auto">
-                            <select style="width: 150px; height: 45px"  id="select-condition">
-                                <option value="Select">Condition</option>
-                            </select>
+                            <input type="text" style="width: 318px; height: 45px"id="search-text" placeholder="Search Here">
                         </div>
-
                         <div class="sorting mr-lg-auto">
-                            <select style="width: 150px; height: 45px"  id="select-status">
-                                <option value="Select">Status</option>
-                            </select>
+                            <a type="button" onclick="searchProducts(0);" class="primary-btn">Search</a>
                         </div>
-
                     </div>
                     <!-- End Filter Bar -->
                     <!-- Start Best Seller -->
                     <section class="lattest-product-area pb-40 category-list">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="col-md-12 form-group"></div>
-                            </div>
+                        <div class="row" id="st-product-container">
 
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label>Title</label>
-                                    <input type="text" id="title" class="form-control" value="">
+                            <!-- single product -->
+                            <div class="col-lg-4 col-md-6" id="st-product">
+                                <div class="single-product">
+                                    <a href="#" id="st-product-a-1">
+                                        <img style="width: 400px; height: 300px" class="img-fluid" id="st-product-img-1" src="img/product/p1.jpg" alt="">
+                                    </a>
+                                    <div class="product-details">
+                                        <h6 id="st-product-title-1">Adidas New Hammer sole
+                                            for Sports person</h6>
+                                        <div class="price">
+                                            <h6 id="st-product-price-1">$150.00</h6>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-
-                            <div class="col-12">
-                                <div class="col-md-12 form-group"></div>
-                            </div>
-
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label>Description</label>
-                                    <textarea cols="1" rows="2" id="description" class="form-control" ></textarea>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="col-md-12 form-group"></div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label>Price</label>
-                                    <input type="text" id="price" class="form-control" pattern="^\d+(\.\d{2})?$" placeholder="0.00">
-                                </div>
-                            </div>
-
-                            <div class="col-lg-4">
-                                <div class="form-group">
-                                    <label>Quantity</label>
-                                    <input type="number" id="qty" class="form-control" min="1" value="1">
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="col-md-12 form-group"></div>
-                            </div>
-                            <div class="col-lg-4">
-                                <label>Image 1</label>
-                                <input class="form-control b2" type="file" accept="image/*" id="image1">
-                            </div>
-
-                            <div class="col-lg-4">
-                                <label>Image 2</label>
-                                <input class="form-control b2" type="file" accept="image/*" id="image2">
-                            </div>
-
-                            <div class="col-lg-4">
-                                <label>Image 3</label>
-                                <input class="form-control b2" type="file" accept="image/*" id="image3">
-                            </div>
-
-                            <div class="col-12">
-                                <div class="col-md-12 form-group"></div>
-                            </div>
-
-                            <div class="col-12">
-                                <div class="col-md-12 form-group"></div>
-                            </div>
-
-                            <div class="col-12">
-                                <div class="col-md-12 form-group">
-                                    <input type="button" onclick="addProduct();" class="primary-btn" value="Add Product To Listing">
-                                </div>
-                            </div>
+                            <!-- single product -->
 
                         </div>
-
-
-                        <!--                            </div>-->
-
                     </section>
-
-
                     <!-- End Best Seller -->
                     <!-- Start Filter Bar -->
-
+                    <div class="filter-bar d-flex flex-wrap align-items-center mb-5">
+                        <div class="pagination" id="st-pagination-container">
+                            <a href="#" class="prev-arrow"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
+                            <a id="st-pagination-button">1</a>
+                            <a href="#" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
                     <!-- End Filter Bar -->
                 </div>
             </div>
         </div>
-
-        <!-- Start related-product Area -->
-        <section class="related-product-area section_gap">
-
-        </section>
-        <!-- End related-product Area -->
 
         <!-- start footer Area -->
         <footer class="footer-area section_gap">
@@ -301,25 +255,25 @@
                             <p>Stay update with our latest</p>
                             <div class="" id="mc_embed_signup">
 
-                                <!--                                <form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                                                                      method="get" class="form-inline">-->
+                                <form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                                      method="get" class="form-inline">
 
-                                <div class="d-flex flex-row">
+                                    <div class="d-flex flex-row">
 
-                                    <input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '"
-                                           required="" type="email">
+                                        <input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '"
+                                               required="" type="email">
 
 
-                                    <button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
-                                    <div style="position: absolute; left: -5000px;">
-                                        <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+                                        <button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+                                        <div style="position: absolute; left: -5000px;">
+                                            <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+                                        </div>
+
+                                        <!-- <div class="col-lg-4 col-md-4">
+                                                                        <button class="bb-btn btn"><span class="lnr lnr-arrow-right"></span></button>
+                                                                </div>  -->
                                     </div>
-
-                                    <!-- <div class="col-lg-4 col-md-4">
-                                                                    <button class="bb-btn btn"><span class="lnr lnr-arrow-right"></span></button>
-                                                            </div>  -->
-                                </div>
-                                <div class="info"></div>
+                                    <div class="info"></div>
                                 </form>
                             </div>
                         </div>
@@ -441,8 +395,25 @@
         <script src="js/nouislider.min.js"></script>
         <script src="js/jquery.magnific-popup.min.js"></script>
         <script src="js/owl.carousel.min.js"></script>
+        <script src="js/gmaps.min.js"></script>
         <script src="js/main.js"></script>
-        <script src="js/my-account.js"></script>
+        <script src="js/search.js"></script>
+        <script>
+                            // Update price value dynamically
+                            const priceRange1 = document.getElementById('price-range1');
+                            const priceValue1 = document.getElementById('price-value1');
+
+                            const priceRange2 = document.getElementById('price-range2');
+                            const priceValue2 = document.getElementById('price-value2');
+
+                            priceRange1.addEventListener('input', () => {
+                                priceValue1.value = priceRange1.value;
+                            });
+
+                            priceRange2.addEventListener('input', () => {
+                                priceValue2.value = priceRange2.value;
+                            });
+        </script>
     </body>
 
 </html>
