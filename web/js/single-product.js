@@ -1,7 +1,7 @@
-//// Initialize Awesome Notifications
-//const notifier = new AWN({
-//    position: "top-right" // Set position to top-right
-//});
+// Initialize Awesome Notifications
+const notifier = new AWN({
+    position: "top-right" // Set position to top-right
+});
 
 
 var productQty;
@@ -12,7 +12,7 @@ async function loadSingleProduct() {
 
     if (parameters.has("pid")) {
         const pid = parameters.get("pid");
-        
+
         const response = await fetch("LoadSingleProduct?pid=" + pid);
 
         if (response.ok) {
@@ -92,10 +92,10 @@ async  function addToCart(p_id, pqty) {
         const json = await response.json();
         console.log(json);
         if (json.success) {
-            console.log(json.message);
+            notifier.success(json.message);
         }
     } else {
-        console.log("Server Error");
+         notifier.alert("Server Error");
     }
 
 }

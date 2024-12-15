@@ -29,6 +29,12 @@
         <link rel="stylesheet" href="css/ion.rangeSlider.css" />
         <link rel="stylesheet" href="css/ion.rangeSlider.skinFlat.css" />
         <link rel="stylesheet" href="css/main.css">
+
+        <!-- Awesome Notifications CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/awesome-notifications/dist/style.css">
+
+        <!-- Awesome Notifications JS -->
+        <script src="https://cdn.jsdelivr.net/npm/awesome-notifications/dist/index.var.min.js"></script>
     </head>
 
     <body onload="loadSingleProduct();">
@@ -153,9 +159,11 @@
                             <div class="product_count">
                                 <label for="qty">Quantity:</label>
                                 <input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
-                                <button onclick="var result = document.getElementById('sst'); var sst = result.value; if (!isNaN(sst))
-                                                                    result.value++;
-                                                                return false;"
+                                <button onclick="var result = document.getElementById('sst');
+                                        var sst = result.value;
+                                        if (!isNaN(sst))
+                                            result.value++;
+                                        return false;"
                                         class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
                                 <button onclick="var result = document.getElementById('sst'); var sst = result.value; if (!isNaN(sst) & amp; & amp; sst > 0) result.value--; return false;"
                                         class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
@@ -519,7 +527,7 @@
                                         <a href="#" class="title" id="r-product-model">Black lace Heels</a>
                                         <div class="price">
                                             <h6>Rs.<span id="r-product-price"></span></h6>
-                                        
+
                                         </div>
                                     </div>
                                 </div>
